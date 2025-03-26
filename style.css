@@ -1,0 +1,964 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+@import url(https://fonts.googleapis.com/css?family=Inder|Great+Vibes);
+.banner {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: url(https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg) no-repeat center center;
+  background-size: cover;
+  margin-bottom: 20px;
+  -webkit-animation: background 12s alternate infinite;
+  animation: background 12s alternate infinite;
+}
+
+.banner, .banner__overlay {
+    background-color: transparent;
+}
+
+
+.banner__overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.banner__container {
+  position: relative;
+  transform: translateY(-50%);
+  top: 50%;
+  text-align: center;
+  color: #fff;
+}
+
+.banner__hero {
+  font-family: 'Josefin Sans';
+  font-weight: 300;
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.banner__text {
+  margin: 0 0 15px 0;
+}
+
+@-webkit-keyframes background {
+    0% {
+        background-position: 50% 30%; /* Start position */
+    }
+
+    100% {
+        background-position: 50% 60%; /* End position */
+    }
+}
+
+@keyframes background {
+    0% {
+        background-position: 50% 30%; /* Start position */
+    }
+
+    100% {
+        background-position: 50% 60%; /* End position */
+    }
+}
+
+/* container */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  background-color: #d82028;
+  border-radius: 4px;
+  box-shadow: 0 3px 0 0 #b41b21;
+}
+nav .nav-button {
+  display: none;
+  padding: 10px;
+  color: #fff;
+  background-color: #d82028;
+  text-align: center;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+nav .nav-button:hover {
+  color: #eee;
+}
+
+/* navigation */
+.nav {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #d82028;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: initial;
+  transition: height .3s ease;
+  max-height: 83px;
+}
+.nav > li {
+  list-style: none;
+}
+.nav > li a {
+  display: block;
+  font-family: "josefin sans";
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 30px 15px;
+}
+.nav > li:hover > a:not(.home-image) {
+  background: #b41b21;
+  color: #f7f7f7;
+}
+.nav > li:hover > .nav__sub {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sub navigation */
+.nav__sub {
+  display: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  background: #b41b21;
+}
+
+.nav__sub > li {
+  display: flex;
+  position: relative;
+}
+.nav__sub > li > a {
+  padding: 15px 60px;
+  font-size: 15px;
+  flex: 1 1 auto;
+}
+.nav__sub > li > a:hover {
+  background: #95161c;
+}
+
+.welcome {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  justify-content: start;
+  align-items: baseline;
+  text-align: center;
+}
+.welcome__title {
+  font-family: 'great vibes';
+  font-size: 5em;
+  margin-bottom: 20px;
+  color: #24662A;
+  text-align: center;
+}
+
+/* Mobile-specific layout adjustments */
+@media all and (max-width: 980px) {
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full-width navbar */
+    z-index: 1000; /* Ensure it's always on top */
+  }
+
+  nav.visible .nav {
+    height: auto;
+    overflow: initial;
+    transition: height .3s ease;
+  }
+
+  nav .nav-button {
+    display: inline-flex;
+    flex: 1 1 auto;
+  }
+
+  .nav {
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-wrap: nowrap;
+    text-align: center;
+  }
+
+  .nav li {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the button itself horizontally */
+  }
+
+  .nav li a {
+    display: flex; /* Ensure the anchor behaves like a flex container */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    padding: 15px 0; /* Adjust padding for mobile */
+    width: 100%; /* Make buttons full width */
+    text-align: center; /* Ensure text is centered */
+  }
+
+  .nav__sub {
+    flex-direction: column;
+    position: initial;
+    width: 100%;
+  }
+}
+
+
+.button {
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 4px;
+  padding: 10px 15px;
+  background-color: #eee;
+  text-decoration: none;
+  color: #333;
+  transition: background-color .5s ease;
+}
+.button:hover, .button:active {
+  color: #fff;
+  background-color: #6f6f6f;
+  transition: background-color .5s ease;
+}
+.button--primary {
+  background-color: #d82028;
+  color: #fff;
+  min-width: 70px;
+}
+.button--primary:hover, .button--primary:active {
+  background-color: #ac1920;
+  color: #eee;
+}
+
+.cart {
+  position: absolute;
+  right: 100px;
+}
+
+.account {
+  position: absolute;
+  right: 40px;
+}
+
+.burger-menu {
+  position: absolute;
+  left: 40px;
+}
+
+.home {
+  position: relative;
+  top: -45px;
+}
+
+.contact {
+  padding: 130px 0;
+}
+
+.contact .heading h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+
+}
+
+.contact .heading h2 span {
+  color: #d82028;
+}
+
+.contact .heading p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #999999;
+  margin: 20px 0 60px;
+  padding: 0;
+}
+
+.contact .form-control {
+  padding: 25px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  background: #d7d7d7;
+  border: 0;
+  border-radius: 10px;
+}
+
+.contact button.btn {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #d82028;
+  color: #ffffff;
+}
+
+.contact .title h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.contact .title p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999;
+  line-height: 1.6;
+  margin: 0 0 40px;
+}
+
+.contact .content .info {
+  margin-top: 30px;
+}
+.contact .content .info i {
+  font-size: 30px;
+  padding: 0;
+  margin: 0;
+  color: #02434b;
+  margin-right: 20px;
+  text-align: center;
+  width: 20px;
+}
+.contact .content .info h4 {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.contact .content .info h4 span {
+  font-size: 13px;
+  font-weight: 300;
+  color: #999999;
+}
+
+/* Menu styling */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.menu {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu-btn {
+  background-color: #ddd;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn.active {
+  background-color: #888;
+  color: white;
+}
+
+.menu-btn:hover {
+  background-color: #d82028;
+  color: white;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.product-card {
+  width: 250px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  box-shadow: 0px 6px 9px #80141a;
+}
+
+.product-card img {
+  max-width: 100%; /* Zorgt ervoor dat de breedte nooit groter is dan de container */
+  height: auto;    /* Behoudt de oorspronkelijke verhouding */
+  object-fit: cover; /* Zorgt dat de afbeelding wordt bijgesneden als nodig */
+  width: 100%; /* Vul altijd de breedte van de container */
+  aspect-ratio: 1; /* Maakt de afbeelding container altijd vierkant */
+  display: block;
+}
+
+.product-card h3 {
+  font-size: 18px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.product-card .size-chooser {
+  margin: 1px 0;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.product-card .size-chooser:hover {
+  border-color: #d82028;
+}
+
+.product-card .size-options select:focus {
+  outline: none;
+  border-color: #d82028;
+}
+
+.product-card .card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  width: 100%;
+}
+
+.product-card .card-footer span {
+  font-size: 16px;
+  color: #333;
+}
+
+.product-card .add-btn {
+  background-color: #d82028;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.product-card .add-btn:hover {
+  background-color: #80141a;
+}
+
+.product-card .card-footer {
+  margin-top: auto;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.product-card .price {
+  font-size: 16px;
+  color: #333;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.toppings-extra input[type="checkbox"]:checked + label {
+  color: #d82028; /* Change the label text color to match the checkbox when checked */
+}
+
+/* Style the text color when the checkbox is checked (optional) */
+.toppings-extra input[type="checkbox"]:checked + label {
+  color: #d82028; /* Change the label text color to match the checkbox when checked */
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.modal-left, .modal-middle, .modal-right {
+  padding: 10px;
+  flex: 1;
+}
+
+.modal-left img {
+  width: 100%; /* Ensures the image stretches to fit the container */
+  max-width: 300px; /* Optional: limits the maximum width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Crops the image if necessary to fit the space */
+  max-height: 300px; /* Keeps the modal layout consistent */
+  display: block; /* Removes any inline spacing */
+}
+
+.modal-right {
+  text-align: left;
+}
+
+/* Modal for custom pizza */
+
+.large-modal {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.custom-pizza-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pizza-info {
+  margin-bottom: 20px;
+}
+
+.pizza-info h2 {
+  margin-bottom: 10px;
+}
+
+.pizza-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.toppings-container {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.toppings-list label {
+  display: block;
+  margin: 5px 0;
+}
+
+.toppings-list input[type="checkbox"]:checked {
+  accent-color: #d82028; /* This changes the color of the checkbox when checked */
+}
+
+/* Style the text color when the checkbox is checked (optional) */
+.toppings-list input[type="checkbox"]:checked + label {
+  color: #d82028; /* Change the label text color to match the checkbox when checked */
+}
+
+.order-section {
+  flex: 1;
+  text-align: center;
+}
+
+.size-section, .price-section {
+  margin-bottom: 20px;
+}
+
+.modal-add-btn {
+  background-color: #d82028;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.modal-add-btn:hover {
+  background-color: #80141a;
+}
+
+.popup-message {
+  position: fixed;
+  top: 100px; /* Adjusted from 20px to 60px for a lower position */
+  right: 10px;
+  background-color: #4CAF50; /* Green for success */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  z-index: 9999;
+  display: block;
+}
+
+.alert-danger {
+  background-color: #f44336; /* Red for error */
+}
+
+@media (max-width: 900px) {
+  .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.auth-card {
+  background-color: #d82028; /* Red background */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 150px;
+  text-align: center;
+  color: #fff; /* White text for title */
+}
+
+.auth-card h2 {
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.auth-card .input-group {
+  margin-bottom: 15px;
+  text-align: left; /* Aligns the label text to the left */
+}
+
+.auth-card label {
+  display: block;
+  color: #fff; /* White text for labels */
+  margin-bottom: 5px;
+}
+
+.auth-card input {
+  display: block; /* Makes inputs block-level for easier centering */
+  width: calc(100% - 20px); /* Ensures consistent width with padding */
+  padding: 10px;
+  margin: 0 auto; /* Centers the input within the card */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.auth-card .submit-btn {
+  background-color: #ac1920;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-card .submit-btn:hover {
+  background-color: #95161c;
+}
+
+
+/*Winkelwagen styling*/
+.form-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%; /* Adjust as needed */
+  height: 500px; /* Adjust as needed */
+  margin-top: 20px;
+}
+
+.information {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  width: 100%;
+  background: darkgray;
+}
+
+.information .form-field {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.sugestions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 300px;
+  padding-left: 70px;
+}
+
+.grid-item {
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.order {
+  width: 100%;
+  max-height: 800px;
+  border: 1px solid #ddd;
+  overflow-y: auto;
+  position: relative;
+  background-color: darkgray;
+}
+
+.details-order {
+  margin-left: 10px;
+}
+
+.item-list {
+  margin-left: 20px;
+}
+
+.bestellen {
+  position: sticky;
+  bottom: 0;
+  background: lightskyblue;
+  padding: 15px 75px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* About Styling */
+
+.about-left {
+    width: 50%;
+    text-align: center;
+    border-right: 1px solid #ddd;
+    position: absolute;
+    z-index: -1;
+}
+
+.about-right {
+    width: 50%;
+    right: 0px;
+    text-align: center;
+    position: absolute;
+    z-index: -1;
+}
+
+.about-over {
+    width: 80%;
+    text-align: left;
+    max-width: 300px;
+    margin: auto;
+    word-wrap: break-word;
+    position: center;
+}
+
+.about-over h3 {
+    text-align: center;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+}
+
+.about-card {
+    width: 180px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-card:hover {
+    box-shadow: 0px 6px 9px #80141a;
+}
+
+.about-card img {
+    max-width: 100%; /* Zorgt ervoor dat de breedte nooit groter is dan de container */
+    height: auto; /* Behoudt de oorspronkelijke verhouding */
+    object-fit: cover; /* Zorgt dat de afbeelding wordt bijgesneden als nodig */
+    width: 80%; /* Vul altijd de breedte van de container */
+    aspect-ratio: 1; /* Maakt de afbeelding container altijd vierkant */
+    align-self: center;
+    display: block;
+}
+
+.about-card h3 {
+    font-size: 18px;
+}
+
+.about-card p {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.hreflink {
+  color: white;
+}
+
+/* General form styling */
+.c_container {
+  text-align: center;
+  background-color: #e0e0e0; /* Light grey background for the whole container */
+  padding: 40px;
+}
+
+.c_container h2 {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between left and right blocks */
+}
+
+/* Left and Right Block Styling */
+.left-block, .right-block {
+  width: 300px; /* Fixed width for both blocks */
+  background-color: #b0b0b0; /* Darker grey background for the blocks */
+  padding: 20px; /* Padding inside each block */
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.c_input-group {
+  margin-bottom: 15px;
+}
+
+.c_input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styling for the house addition input to align it next to the street input */
+.houseaddition-label {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.houseaddition-input {
+  width: 60px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.c_submit-btn {
+  background-color: #ac1920;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.c_submit-btn:hover {
+  background-color: #95161c;
+}
+
+.accountinfo_container {
+  background-color: #e6e6e6;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 40px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accountinfo_container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.accountinfo_form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accountinfo_section {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 10px;
+}
+
+.accountinfo_section h3 {
+  margin-bottom: 10px;
+}
+
+.accountinfo_section label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.accountinfo_section input {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
